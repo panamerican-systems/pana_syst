@@ -4,7 +4,7 @@ const CONFIG = {
         proyectos: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ29KpQ1WHCIZN32O5C1cY29jAIonwN62OJnhDc9u_3Tr2lpmlhN_d2_Nvk0MKbfLLArvSjPd-avfPj/pub?gid=0&single=true&output=csv',
         productos: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ29KpQ1WHCIZN32O5C1cY29jAIonwN62OJnhDc9u_3Tr2lpmlhN_d2_Nvk0MKbfLLArvSjPd-avfPj/pub?gid=1005578892&single=true&output=csv'
     },
-    whatsappNumber: '525517407646', // Reemplaza con tu número corporativo real (código de país + número)
+    whatsappNumber: 'none', // Reemplaza con tu número corporativo real (código de país + número)
     defaultProjects: [
         {
             NOMBRE: 'Mikuna Wassi – Menú Interactivo & Sistema de Pedidos',
