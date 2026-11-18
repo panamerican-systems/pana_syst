@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traductor de Precio a Báscula | Panamerican Systems</title>
+    
+    <!-- Meta SEO y configuración -->
+    <meta name="description" content="Traduce el dinero que te pagan al peso exacto en la báscula de forma rápida y sin complicaciones para tu negocio.">
+    
+    <!-- Estilos corporativos integrados directamente -->
+    <style>
+        :root {
+            --primary-color: #ad66ef;
+            --secondary-color: #7a3db8;
+            --bg-color: #f8f9fc;
+            --card-bg: #ffffff;
+            --text-color: #222222;
+            --whatsapp-color: #25d366;
+            --border-radius: 12px;
+        }
+
+        /* Corrección aplicada aquí: selector universal con asterisco (*) */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden; 
+        }
+
+        .hero-header {
+            background: linear-gradient(135deg, rgba(122, 61, 184, 0.85), rgba(173, 102, 239, 0.85));
+            color: #ffffff;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .logo-container {
+            margin-bottom: 1.2rem;
+        }
+
+        .company-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .main-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .section-desc {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e1e4ed;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            background: var(--secondary-color);
+            color: #ffffff;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 1.05rem;
+            transition: opacity 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            width: auto;
+            margin-top: 1rem;
+        }
+
+        .btn-primary:hover, .btn-danger:hover {
+            opacity: 0.9;
+        }
+
+        .result-box {
+            background: #f3e8ff;
+            border: 2px dashed var(--secondary-color);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .result-box h3 {
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .weight-range {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 0.5rem 0;
+        }
+
+        .result-details {
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .history-list {
+            list-style: none;
+            margin-top: 1rem;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .history-item {
+            background: var(--bg-color);
+            padding: 0.8rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .history-info strong {
+            color: var(--secondary-color);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            margin-top: 2rem;
+        }
+
+        /* Estilos para el Modal de Alerta Personalizado */
+        .custom-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .custom-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .custom-modal {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+        .custom-modal-overlay.active .custom-modal {
+            transform: translateY(0);
+        }
+        .custom-modal h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+        }
+        .custom-modal p {
+            color: #555;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        .custom-modal button {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="../../../images/logo-panamerican-systems.jpeg" alt="Logo de Panamerican Systems" class="company-logo" onerror="this.style.display='none'">
+            </div>
+            <h1>Traductor de Precio a Báscula</h1>
+            <p class="subtitle">Solo pesa y cobra: olvídate de calcular al instante.</p>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <a href="../index.html" class="back-link">← Volver a Herramientas Pana PyMEs</a>
+
+        <div class="card">
+            <h2>Calculadora Rápida para Mostrador</h2>
+            <p class="section-desc">Ingresa el precio por kilo y el dinero pagado. El sistema calculará el peso exacto y guardará tu consulta automáticamente.</p>
+
+            <div class="form-group">
+                <label for="pricePerKg">Precio por Kilo ($):</label>
+                <input type="number" id="pricePerKg" placeholder="Ej. 80" step="0.5" inputmode="decimal">
+            </div>
+
+            <div class="form-group">
+                <label for="moneyPaid">Dinero que paga el cliente ($):</label>
+                <input type="number" id="moneyPaid" placeholder="Ej. 20" step="0.5" inputmode="decimal">
+            </div>
+
+            <button type="button" id="calculateBtn" class="btn-primary">Calcular Peso en Báscula</button>
+            <button type="button" id="newQueryBtn" class="btn-primary btn-secondary" style="display: none;">Nueva Consulta</button>
+
+            <!-- Caja de Resultados -->
+            <div id="resultContainer" class="result-box" style="display: none;">
+                <h3>Peso Ideal en Báscula</h3>
+                <div class="weight-range" id="targetWeightDisplay">0 g</div>
+                <div class="result-details" id="rangeDetailsDisplay"></div>
+            </div>
+        </div>
+
+        <!-- Tarjeta de Historial -->
+        <div class="card" id="historyCard" style="display: none;">
+            <h2>Historial de Consultas Recientes</h2>
+            <p class="section-desc">Tus cálculos anteriores almacenados en este dispositivo.</p>
+            <ul class="history-list" id="historyList"></ul>
+            <button type="button" id="clearHistoryBtn" class="btn-primary btn-danger">Limpiar Historial</button>
+        </div>
+    </main>
+
+    <!-- Modal de Alerta Corporativo -->
+    <div id="customAlertModal" class="custom-modal-overlay">
+        <div class="custom-modal">
+            <h3>Aviso Importante</h3>
+            <p id="customAlertMessage">Mensaje aquí</p>
+            <button type="button" id="closeCustomModal">Entendido</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© <span id="currentYear"></span> Panamerican Systems | Herramientas para PyMEs</p>
+    </footer>
+
+    <!-- Lógica con LocalStorage -->
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const pricePerKgInput = document.getElementById('pricePerKg');
+        const moneyPaidInput = document.getElementById('moneyPaid');
+        const calculateBtn = document.getElementById('calculateBtn');
+        const newQueryBtn = document.getElementById('newQueryBtn');
+        const resultContainer = document.getElementById('resultContainer');
+        const targetWeightDisplay = document.getElementById('targetWeightDisplay');
+        const rangeDetailsDisplay = document.getElementById('rangeDetailsDisplay');
+        
+        const historyCard = document.getElementById('historyCard');
+        const historyList = document.getElementById('historyList');
+        const clearHistoryBtn = document.getElementById('clearHistoryBtn');
+
+        // Clave para el localStorage
+        const STORAGE_KEY = 'panasyst_scale_history';
+
+        // Cargar historial al iniciar la página
+        document.addEventListener('DOMContentLoaded', renderHistory);
+
+        // ==========================================
+        // FUNCIONES DEL MODAL CORPORATIVO
+        // ==========================================
+        function showCustomAlert(message) {
+            const modal = document.getElementById('customAlertModal');
+            const messageEl = document.getElementById('customAlertMessage');
+            messageEl.textContent = message;
+            modal.classList.add('active');
+        }
+
+        document.getElementById('closeCustomModal').addEventListener('click', function() {
+            document.getElementById('customAlertModal').classList.remove('active');
+        });
+        // ==========================================
+
+        function calculateScale() {
+            const priceKg = parseFloat(pricePerKgInput.value);
+            const money = parseFloat(moneyPaidInput.value);
+
+            if (!priceKg || priceKg <= 0 || isNaN(priceKg)) {
+                showCustomAlert('Por favor ingresa un precio por kilo válido.');
+                pricePerKgInput.focus();
+                return;
+            }
+
+            if (!money || money <= 0 || isNaN(money)) {
+                showCustomAlert('Por favor ingresa un monto de dinero válido.');
+                moneyPaidInput.focus();
+                return;
+            }
+
+            const exactGrams = (money / priceKg) * 1000;
+            const toleranceMoney = 0.50; 
+            const minGrams = ((Math.max(0, money - toleranceMoney)) / priceKg) * 1000;
+            const maxGrams = ((money + toleranceMoney) / priceKg) * 1000;
+
+            let weightText = exactGrams >= 1000 ? `${(exactGrams / 1000).toFixed(2)} kg` : `${Math.round(exactGrams)} g`;
+
+            targetWeightDisplay.textContent = weightText;
+            rangeDetailsDisplay.innerHTML = `
+                Rango práctico: <strong>${Math.round(minGrams)} g</strong> - <strong>${Math.round(maxGrams)} g</strong>
+            `;
+
+            resultContainer.style.display = 'block';
+            calculateBtn.style.display = 'none';
+            newQueryBtn.style.display = 'block';
+
+            // Guardar en el historial
+            saveToHistory(priceKg, money, weightText);
+        }
+
+        function saveToHistory(priceKg, money, weightText) {
+            let history = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+            
+            const newEntry = {
+                priceKg,
+                money,
+                weightText,
+                time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+            };
+
+            history.unshift(newEntry);
+            if (history.length > 15) history.pop();
+
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+            renderHistory();
+        }
+
+        function renderHistory() {
+            let history = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+            historyList.innerHTML = '';
+
+            if (history.length === 0) {
+                historyCard.style.display = 'none';
+                return;
+            }
+
+            historyCard.style.display = 'block';
+
+            history.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'history-item';
+                li.innerHTML = `
+                    <div class="history-info">
+                        <strong>$${item.money}</strong> pagados (a $${item.priceKg}/kg)<br>
+                        <span>Peso báscula: <strong>${item.weightText}</strong></span>
+                    </div>
+                    <span style="font-size: 0.8rem; color: #888;">${item.time}</span>
+                `;
+                historyList.appendChild(li);
+            });
+        }
+
+        function resetForm() {
+            pricePerKgInput.value = '';
+            moneyPaidInput.value = '';
+            resultContainer.style.display = 'none';
+            newQueryBtn.style.display = 'none';
+            calculateBtn.style.display = 'block';
+            pricePerKgInput.focus();
+        }
+
+        calculateBtn.addEventListener('click', calculateScale);
+        newQueryBtn.addEventListener('click', resetForm);
+
+        clearHistoryBtn.addEventListener('click', function() {
+            if (confirm('¿Deseas limpiar todo el historial de consultas?')) {
+                localStorage.removeItem(STORAGE_KEY);
+                renderHistory();
+            }
+        });
+
+        moneyPaidInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') calculateScale();
+        });
+        pricePerKgInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') moneyPaidInput.focus();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas para PyMEs | Panamerican Systems</title>
+    
+    <meta name="description" content="Centro de herramientas prácticas y ágiles para la administración y mostrador de tu PyME.">
+    
+    <!-- Estilos corporativos integrados -->
+    <style>
+        :root {
+            --primary-color: #ad66ef;
+            --secondary-color: #7a3db8;
+            --bg-color: #f8f9fc;
+            --card-bg: #ffffff;
+            --text-color: #222222;
+            --border-radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .hero-header {
+            background: linear-gradient(135deg, rgba(122, 61, 184, 0.85), rgba(173, 102, 239, 0.85));
+            color: #ffffff;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .logo-container {
+            margin-bottom: 1.2rem;
+        }
+
+        .company-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .main-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .tool-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.4rem;
+        }
+
+        .tool-card p {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-tool {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--secondary-color);
+            color: #ffffff;
+            transition: opacity 0.3s ease;
+        }
+
+        .btn-tool:hover {
+            opacity: 0.9;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <!-- Sube un nivel para encontrar el logo en la raíz -->
+                <img src="../images/logo-panamerican-systems.jpeg" alt="Logo de Panamerican Systems" class="company-logo" onerror="this.style.display='none'">
+            </div>
+            <h1>Herramientas para PyMEs</h1>
+            <p class="subtitle">Soluciones ágiles y directas para el mostrador de tu negocio.</p>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- Sube un nivel para volver a la página principal de Panamerican Systems -->
+        <a href="../index.html" class="back-link">← Volver al sitio principal</a>
+
+        <div class="tools-grid">
+            <!-- Tarjeta 1: Traductor de Precio a Báscula -->
+            <div class="tool-card">
+                <div>
+                    <h3>⚖️ Traductor de Precio a Báscula</h3>
+                    <p>Convierte de inmediato el dinero que te paga el cliente en el peso exacto que debe marcar la báscula con rango flexible.</p>
+                </div>
+                <a href="precio_peso/index.html" class="btn-tool">Abrir Herramienta</a>
+            </div>
+
+            <!-- Tarjeta 2: Contador Rápido de Piezas -->
+            <div class="tool-card">
+                <div>
+                    <h3>🔢 Contador Rápido de Piezas</h3>
+                    <p>Cuenta piezas sueltas o bolsas sin perder el hilo usando atajos de teclado o botones físicos y digitales.</p>
+                </div>
+                <a href="counter/index.html" class="btn-tool">Abrir Herramienta</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© <span id="currentYear"></span> Panamerican Systems | Soluciones Tecnológicas</p>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
