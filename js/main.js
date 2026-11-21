@@ -57,3 +57,16 @@ async function loadProductos() {
         </div>
     `).join('');
 }
+
+const topNavbar = document.getElementById('topNavbar');
+    const heroHeader = document.querySelector('.hero-header');
+
+    window.addEventListener('scroll', () => {
+        // Aparece suavemente cuando el scroll pasa la mitad del Hero
+        const triggerPoint = heroHeader ? heroHeader.offsetHeight - 100 : 150;
+        if (window.scrollY > triggerPoint) {
+            topNavbar.classList.add('is-visible');
+        } else {
+            topNavbar.classList.remove('is-visible');
+        }
+    }, { passive: true });

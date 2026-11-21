@@ -32,18 +32,35 @@
     <script src="js/main.js" defer></script>
 </head>
 <body>
+<!-- BARRA COMPACTA QUE APARECE SUAVEMENTE AL BAJAR -->
+    <nav class="top-navbar" id="topNavbar">
+        <div class="navbar-container">
+            <!-- Izquierda: Logo + Frase -->
+            <a href="#" class="navbar-brand">
+                <img src="images/logo-panamerican-systems.jpeg" alt="Logo Panamerican Systems" class="navbar-logo">
+                <span class="navbar-title">Deja que tu página hable por ti.</span>
+            </a>
 
-    <!-- Header Corporativo Actualizado -->
+            <!-- Derecha: Opciones -->
+            <div class="navbar-links">
+                <a href="#servicios" class="nav-btn-solid">Ver Soluciones</a>
+                <a href="pana_tools/index.html" class="nav-btn-outline">🧰 Pana Tools</a>
+                <a id="whatsapp-nav-btn" href="#" target="_blank" class="nav-btn-outline">WhatsApp</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- TU HERO ORIGINAL (Centrado, sin sticky, sin saltos) -->
     <header class="hero-header">
         <div class="header-container">
             <div class="logo-container">
-                <!-- Logo oficial de Panamerican Systems -->
                 <img src="images/logo-panamerican-systems.jpeg" alt="Logo de Panamerican Systems" class="company-logo">
             </div>
             <h1>Deja que tu página hable por ti.</h1>
             <p class="subtitle">Tu carta de presentación: sencilla, rápida y 100% tuya.</p>
             <div class="hero-cta">
                 <a href="#servicios" class="btn-primary">Ver Soluciones</a>
+                <a href="pana_tools/index.html" class="btn-whatsapp-outline">🧰 Pana Tools (Gratis)</a>
                 <a id="whatsapp-hero-btn" href="#" target="_blank" class="btn-whatsapp-outline">Consulta Gratis por WhatsApp</a>
             </div>
         </div>

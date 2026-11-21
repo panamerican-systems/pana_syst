@@ -22,9 +22,112 @@ body {
     overflow-x: hidden; 
 }
 
-/* Estilos para el Encabezado con Fondo Institucional */
+/* =========================================================
+   BARRA SUPERIOR COMPACTA (FIJA Y SUAVE)
+   ========================================================= */
+.top-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(135deg, #6e35a8, #9249d6);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.22);
+    padding: 0.65rem 1.5rem;
+    
+    /* Oculta arriba por defecto en el index principal */
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+}
+
+/* Clase activa (por scroll en Home o fija desde el inicio en internas) */
+.top-navbar.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Si la página interna solo usa navbar (sin hero), agregamos espacio arriba al body */
+body.has-fixed-nav {
+    padding-top: 72px;
+}
+
+.navbar-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/* Bloque Izquierdo: Logo + Frase */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.navbar-logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    flex-shrink: 0;
+}
+
+.navbar-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: -0.2px;
+}
+
+/* Bloque Derecho: Opciones */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+}
+
+.nav-btn-solid,
+.nav-btn-outline {
+    padding: 0.45rem 1rem;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    white-space: nowrap;
+}
+
+.nav-btn-solid {
+    background: #ffffff;
+    color: var(--secondary-color);
+}
+
+.nav-btn-outline {
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    color: #ffffff;
+}
+
+.nav-btn-solid:hover,
+.nav-btn-outline:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   HERO PRINCIPAL (SIN STICKY PARA EVITAR SALTOS)
+   ========================================================= */
 .hero-header {
-    background: linear-gradient(135deg, rgba(122, 61, 184, 0.85), rgba(173, 102, 239, 0.85)), url('../img/fondo.jpeg');
+    background: linear-gradient(135deg, rgba(122, 61, 184, 0.92), rgba(173, 102, 239, 0.92)), url('../img/fondo.jpeg');
     background-size: cover;
     background-position: center;
     color: #ffffff;
@@ -32,18 +135,42 @@ body {
     text-align: center;
 }
 
-/* Contenedor y diseño circular del Logo en el encabezado */
 .logo-container {
+    display: flex;
+    justify-content: center;
     margin-bottom: 1.5rem;
 }
 
 .company-logo {
     width: 140px;
     height: 140px;
-    object-fit: cover; /* Asegura que la imagen se ajuste correctamente sin deformarse */
-    border-radius: 50%; /* Convierte la imagen en un círculo perfecto */
-    border: 3px solid rgba(255, 255, 255, 0.8); /* Borde sutil para resaltar sobre el fondo morado */
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+    .navbar-title {
+        font-size: 0.98rem;
+    }
+    .navbar-links {
+        width: 100%;
+        justify-content: center;
+    }
+    .nav-btn-solid,
+    .nav-btn-outline {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+    }
+    body.has-fixed-nav {
+        padding-top: 105px;
+    }
 }
 
 .company-badge {
@@ -74,7 +201,64 @@ body {
     flex-wrap: wrap;
 }
 
-/* Botones Principales */
+/* --- ESTADO COMPACTO (Al hacer scroll en Home o fijo en internas) --- */
+.hero-header.header-compact {
+    padding: 0.65rem 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.hero-header.header-compact .header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-header.header-compact .header-brand-group {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.hero-header.header-compact .logo-container {
+    margin-bottom: 0;
+}
+
+.hero-header.header-compact .company-logo {
+    width: 42px;
+    height: 42px;
+    border-width: 2px;
+}
+
+.hero-header.header-compact h1 {
+    font-size: 1.25rem;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.hero-header.header-compact .subtitle {
+    display: none;
+}
+
+.hero-header.header-compact .hero-cta {
+    margin-top: 0;
+    gap: 0.6rem;
+}
+
+.hero-header.header-compact .hero-cta a {
+    padding: 0.45rem 0.95rem;
+    font-size: 0.88rem;
+    min-height: auto;
+}
+
+/* =========================================================
+   BOTONES PRINCIPALES
+   ========================================================= */
 .btn-primary, .btn-whatsapp-outline, .btn-link, .btn-whatsapp {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -83,7 +267,7 @@ body {
     font-weight: bold;
     text-align: center;
     min-height: 48px;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, opacity 0.3s ease;
 }
 
 .btn-primary {
@@ -101,7 +285,9 @@ body {
     opacity: 0.9;
 }
 
-/* Contenedor Principal */
+/* =========================================================
+   CONTENEDOR PRINCIPAL Y TARJETAS
+   ========================================================= */
 .main-container {
     max-width: 1100px;
     margin: 2rem auto;
@@ -227,24 +413,48 @@ footer {
     text-decoration: underline;
 }
 
-/* Adaptación para Dispositivos Móviles */
-@media (max-width: 600px) {
-    .hero-header {
+/* =========================================================
+   ADAPTACIÓN PARA DISPOSITIVOS MÓVILES
+   ========================================================= */
+@media (max-width: 680px) {
+    /* Header grande en móvil */
+    .hero-header:not(.header-compact) {
         padding: 2.5rem 1rem;
     }
-    .hero-header h1 {
+    .hero-header:not(.header-compact) h1 {
         font-size: 2rem;
     }
+    .hero-header:not(.header-compact) .hero-cta {
+        flex-direction: column;
+    }
+    .hero-header:not(.header-compact) .btn-primary,
+    .hero-header:not(.header-compact) .btn-whatsapp-outline {
+        width: 100%;
+    }
+
+    /* Header compacto en móvil */
+    .hero-header.header-compact {
+        padding: 0.6rem 1rem;
+    }
+    .hero-header.header-compact .header-container {
+        justify-content: center;
+    }
+    .hero-header.header-compact .hero-cta {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+    }
+    .hero-header.header-compact .btn-primary,
+    .hero-header.header-compact .btn-whatsapp-outline {
+        width: auto;
+        flex: 1;
+    }
+
+    /* Contenido general */
     .card {
         padding: 1.2rem;
     }
     .grid-2-col, .features-grid, .projects-grid, .solutions-grid {
         grid-template-columns: 1fr;
-    }
-    .hero-cta {
-        flex-direction: column;
-    }
-    .btn-primary, .btn-whatsapp-outline {
-        width: 100%;
     }
 }
